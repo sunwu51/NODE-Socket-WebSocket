@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .mid{
+            position: absolute;
+            top: 42%;
+            left: 42%;
+        }
+        .down{
+            position:absolute;
+            top:74%;
+            left:2%;
+        }
+        .text{
+            width: 50%;
+            height: 200px;
+        }
+        .data{
+            width: 70%;
+            height: 400px;
+        }
+        .btn{
+            width: 50px;
+            height: 30px;
+        }
+    </style>
+    <script src="jquery-1.10.2.min.js"></script>
+    <script src="socket.io.js"></script>
+    <script type="text/javascript">
+       $(function () {
+           socket = io.connect("ws://127.0.0.1:9988");
+           socket.on("back",function(x,y){
+              $("#txt").val($("#txt").val()+"name:"+x+";pwd:"+y+"\r\n");
+           });
+       });
+
+
+    </script>
+</head>
+<body>
+<textarea id="txt"></textarea>
+</body>
+</html>
